@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Таймер</title>
+<style>
+body {
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f6d365, #fda085);
+    color: white;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+#timer {
+    font-size: 40px;
+}
+</style>
+</head>
+<body>
+
+<h1>До весёлого события осталось:</h1>
+<div id="timer"></div>
+
+<script>
+let time = 10; // секунд
+const timer = document.getElementById('timer');
+
+function countdown() {
+    if(time >= 0){
+        timer.innerText = time + " сек";
+        time--;
+    } else {
+        timer.innerText = "🎉 Готово!";
+        clearInterval(interval);
+    }
+}
+
+const interval = setInterval(countdown, 1000);
+</script>
+
+</body>
+</html>
